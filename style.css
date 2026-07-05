@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #b53acb, #738bc2, #3640bf);
+}
+
+.container {
+    width: 450px;
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 215, 0, .2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .5);
+}
+
+h2 {
+    text-align: center;
+    color: #00E5FF;
+    margin-bottom: 10px;
+}
+
+.info {
+    text-align: center;
+    color: #f1f1f1;
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    height: 160px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    padding: 15px;
+    background: #ffffff;
+}
+
+.counter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.progress {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 20px;
+    margin-top: 18px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: limegreen;
+    transition: .3s;
+}
+
+#warning {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Character Counter</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>📝 Live Character Counter</h2>
+        <p class="info">Maximum 200 Characters</p>
+        <textarea id="message" maxlength="200" placeholder="Type your message here..."></textarea>
+
+        <div class="counter">
+            <div>
+                Typed :
+                <span id="typed">0</span>
+            </div>
+            <div>
+                Remaining :
+                <span id="remaining">200</span>
+            </div>
+            <div id="emoji">😊</div>
+
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <p id="warning">Start typing...</p>
+
+    </div>
+
+    <script>
+
+        let message = document.getElementById("message");
+        let typed = document.getElementById("typed");
+        let remaining = document.getElementById("remaining");
+        let progressBar = document.getElementById("progressBar");
+        let warning = document.getElementById("warning");
+        let emoji = document.getElementById("emoji");
+        let max = 200;
+
+        message.addEventListener("input", function () {
+            let count = message.value.length;
+            let left = max - count;
+            typed.innerHTML = count;
+            remaining.innerHTML = left;
+            let percentage = (count / max) * 100;
+            progressBar.style.width = percentage + "%";
+
+            if (percentage <= 50) {
+                progressBar.style.background = "limegreen";
+                emoji.innerHTML = "😊";
+                warning.style.color = "white";
+                warning.innerHTML = "Keep typing...";
+            }
+            else if (percentage <= 80) {
+                progressBar.style.background = "orange";
+                emoji.innerHTML = "😃";
+                warning.style.color = "yellow";
+                warning.innerHTML = "You're halfway there.";
+            }
+            else if (percentage < 100) {
+                progressBar.style.background = "tomato";
+                emoji.innerHTML = "😬";
+                warning.style.color = "orange";
+                warning.innerHTML = "Almost at the limit.";
+            }
+            else {
+                progressBar.style.background = "red";
+                emoji.innerHTML = "🚫";
+                warning.style.color = "#ff4d4d";
+                warning.innerHTML = "Character limit reached!";
+            }
+
+        });
+    </script>
+
+</body>
+</html>
